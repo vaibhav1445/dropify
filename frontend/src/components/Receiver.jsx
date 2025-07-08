@@ -15,14 +15,13 @@ const Receiver = () => {
     socket.emit("joinRoom", "room-1");
 
     socket.on("receiveChunk", ({ chunk, fileName }) => {
-  const typedChunk = new Uint8Array(chunk);
-  chunksRef.current.push(typedChunk);
-  receivedChunks.current += 1;
-  setFileName(fileName);
-  setStatus(`Receiving: ${fileName}`);
-  setProgress((receivedChunks.current / expectedChunks.current) * 100);
-});
-
+      const typedChunk = new Uint8Array(chunk);
+      chunksRef.current.push(typedChunk);
+      receivedChunks.current += 1;
+      setFileName(fileName);
+      setStatus(`Receiving: ${fileName}`);
+      setProgress((receivedChunks.current / expectedChunks.current) * 100);
+    });
 
     socket.on("transferComplete", ({ fileName }) => {
       const blob = new Blob(chunksRef.current, { type: 'application/octet-stream' });
@@ -36,10 +35,9 @@ const Receiver = () => {
       receivedChunks.current = 0;
     });
 
-    // Optional: reset on mount
     setProgress(0);
     setStatus("Waiting for file...");
-    expectedChunks.current = 20; // optional estimate or dynamic later
+    expectedChunks.current = 20;
 
     return () => {
       socket.off("receiveChunk");
@@ -48,13 +46,13 @@ const Receiver = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
-      <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md text-center">
-        <h2 className="text-2xl font-semibold mb-4 text-gray-700">File Receiver</h2>
-        <p className="text-gray-600 mb-4">{status}</p>
+    <div className="min-h-screen flex items-center justify-center bg-transparent px-4">
+      <div className="w-full max-w-md bg-white/5 backdrop-blur-md rounded-lg shadow-2xl p-6 text-white text-center">
+        <h2 className="text-2xl font-bold text-indigo-400 mb-4">Receive File</h2>
+        <p className="text-sm text-gray-300 mb-4">{status}</p>
 
         {progress > 0 && (
-          <div className="w-full bg-gray-200 rounded-full h-4 mb-4">
+          <div className="w-full bg-white/10 rounded-full h-4 mb-4">
             <div
               className="bg-blue-500 h-4 rounded-full transition-all duration-300"
               style={{ width: `${progress}%` }}
@@ -64,7 +62,7 @@ const Receiver = () => {
 
         {fileURL && (
           <a href={fileURL} download={fileName}>
-            <button className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">
+            <button className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition">
               Download File
             </button>
           </a>

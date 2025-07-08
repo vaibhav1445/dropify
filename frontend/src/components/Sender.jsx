@@ -45,11 +45,10 @@ const Sender = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 px-4">
-      <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-semibold mb-6 text-center text-gray-700">File Sender</h2>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-transparent px-4">
+      <div className="w-full max-w-md bg-white/5 backdrop-blur-md rounded-lg shadow-2xl p-6 text-white">
+        <h2 className="text-2xl font-bold text-center text-indigo-400 mb-6">Send Your File Securely</h2>
 
-        {/* Styled Browse Button */}
         <div className="mb-4">
           <label className="block w-full cursor-pointer bg-indigo-600 hover:bg-indigo-700 text-white text-center py-2 px-4 rounded transition duration-200">
             Browse File
@@ -64,13 +63,12 @@ const Sender = () => {
           </label>
 
           {file && (
-            <p className="mt-2 text-sm text-gray-600 text-center">
+            <p className="mt-2 text-sm text-gray-200 text-center">
               Selected: <span className="font-medium">{file.name}</span>
             </p>
           )}
         </div>
 
-        {/* Send Button */}
         <button
           onClick={sendFile}
           className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded mb-4 transition duration-200"
@@ -78,9 +76,8 @@ const Sender = () => {
           Send File
         </button>
 
-        {/* Progress Bar */}
         {progress > 0 && (
-          <div className="w-full bg-gray-200 rounded-full h-4">
+          <div className="w-full bg-white/10 rounded-full h-4">
             <div
               className="bg-green-500 h-4 rounded-full transition-all duration-300"
               style={{ width: `${progress}%` }}

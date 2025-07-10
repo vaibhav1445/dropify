@@ -1,4 +1,4 @@
-// src/components/Receiver.jsx
+
 import React, { useEffect, useRef, useState } from 'react';
 import socket from '../socket';
 

@@ -1,4 +1,4 @@
-// src/components/Sender.jsx
+
 import React, { useState } from 'react';
 import socket from '../socket';
 

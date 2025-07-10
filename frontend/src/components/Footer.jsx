@@ -1,4 +1,4 @@
-// src/components/Footer.jsx
+
 import React from 'react';
 import { FaGithub, FaGlobe, FaEnvelope } from 'react-icons/fa';
 

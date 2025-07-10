@@ -6,14 +6,14 @@ const mongoose = require("mongoose");
 const socketIO = require("socket.io");
 const authRoutes = require("./routes/auth");
 const jwt = require("jsonwebtoken");
-const MAX_CHUNK_SIZE = 1 * 1024 * 1024; // 1MB per chunk
+const MAX_CHUNK_SIZE = 1 * 1024 * 1024; 
 require("dotenv").config();
 
 const app = express();
 const server = http.createServer(app);
 const io = socketIO(server, {
   cors: {
-    origin: "http://localhost:5173", // React port
+    origin: "http://localhost:5173", 
     methods: ["GET", "POST"],
   },
 });
@@ -53,12 +53,12 @@ io.on("connection", (socket) => {
 
  socket.on("fileChunk", ({ roomId, chunk, fileName }) => {
   console.log(`[fileChunk] file: ${fileName}, size: ${chunk?.byteLength}`);
-  socket.to(roomId).emit("receiveChunk", { chunk, fileName }); // ✅ use socket.to()
+  socket.to(roomId).emit("receiveChunk", { chunk, fileName }); 
 });
 
 socket.on("transferComplete", ({ roomId, fileName }) => {
   console.log(`[transferComplete] file: ${fileName}`);
-  socket.to(roomId).emit("transferComplete", { fileName }); // ✅ use socket.to()
+  socket.to(roomId).emit("transferComplete", { fileName }); 
 });
 
 

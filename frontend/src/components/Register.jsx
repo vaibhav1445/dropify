@@ -11,7 +11,7 @@ const Register = ({ onSwitchToLogin }) => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:4000/api/auth/register', {
+      await axios.post('https://dropify-6.onrender.com/api/auth/register', {
         username,
         password
       });

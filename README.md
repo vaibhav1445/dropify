@@ -4,6 +4,9 @@ Dropify is a secure, real-time file sharing application built with **React**, **
 
 ---
 
+## App Live Link
+https://dropify-frontend-8ua0lnkgc.vercel.app/
+
 ## 🌟 Features
 
 - 🔐 User Authentication (Register / Login)

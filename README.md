@@ -20,7 +20,6 @@ Dropify is a secure, real-time file sharing application built with **React**, **
 - 🎨 **Responsive UI** with Tailwind CSS  
 - 🌈 **Dark glossy theme** with gradients  
 - 🧩 **Component-based architecture**  
-- 🔐 *(Optional)* **AES-based encryption** *(WIP / deprecated)*  
 
 ---
 
@@ -104,12 +103,6 @@ dropify/
 
 ---
 
-## 💸 Payment Integration
-
-💡 **Payment integration using Razorpay is in progress.**  
-Future updates will enable premium features and encrypted transfer options via secure payments.
-
----
 
 ## ✨ Future Improvements
 
